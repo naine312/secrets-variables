@@ -1,0 +1,14 @@
+name: using secret key
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log into aws
+        uses: aws-actions/configure-aws-credentials@v2
+        with: 
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: us-east-2
